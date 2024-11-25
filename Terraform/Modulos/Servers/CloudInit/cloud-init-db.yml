@@ -1,0 +1,21 @@
+#cloud-config
+hostname: ddbb
+fqdn: ddbb.local
+manage_etc_hosts: true
+
+packages:
+  - mariadb-server
+
+users:
+  - name: ddbbadmin
+    gecos: System Administrator
+    sudo: ['ALL=(ALL) NOPASSWD:ALL']
+    groups: sudo
+    lock_passwd: false
+    shell: /bin/bash    
+    
+runcmd:
+  # Habilitar y arrancar mariadb
+  - systemctl enable mariadb
+  - systemctl start mariadb
+  - sudo echo "Base de Datos vacia" > /ddbb.txt
