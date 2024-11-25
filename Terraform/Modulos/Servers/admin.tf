@@ -30,6 +30,7 @@ resource "openstack_networking_port_v2" "admin_port" {
   ]
   fixed_ip {
     subnet_id = var.subnet1_id
+    ip_address = var.admin_fixed_ip
   }
 }
 

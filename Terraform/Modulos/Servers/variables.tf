@@ -46,3 +46,9 @@ variable "admin_ip" {
   default = "10.0.10.200"
 }
 
+variable "admin_fixed_ip"{
+  description = "Ip fija del ADMIN"
+  type = string
+  default = "10.1.1.100"
+} 
+
