@@ -18,6 +18,7 @@ resource "openstack_networking_router_interface_v2" "R1_interface" {
 
 # Puerto apra el router y el FW
 resource "openstack_networking_port_v2" "R1_port" {
+  name = "R1_port"
   network_id = openstack_networking_network_v2.net1.id
   fixed_ip{
     subnet_id = openstack_networking_subnet_v2.subnet1.id

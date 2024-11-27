@@ -30,14 +30,23 @@ resource "openstack_fw_rule_v2" "internal_rule" {
   destination_ip_address = "0.0.0.0/0"
   enabled          = "true"
 }
-# Politicas
 
+resource "openstack_fw_rule_v2" "allow_icmp" {
+  name        = "allow-icmp"
+  protocol    = "icmp"
+  action      = "allow"
+  description = "Allow ICMP traffic"
+}
+
+
+# Politicas
 resource "openstack_fw_policy_v2" "ingress" {
   name = "firewall_ingress_policy"
 
   rules = [
     openstack_fw_rule_v2.ssh_rule.id,
-    openstack_fw_rule_v2.www_rule.id
+    openstack_fw_rule_v2.www_rule.id,
+    openstack_fw_rule_v2.allow_icmp.id
   ]
 }
 
@@ -46,6 +55,7 @@ resource "openstack_fw_policy_v2" "egress" {
 
   rules = [
     openstack_fw_rule_v2.internal_rule.id,
+    openstack_fw_rule_v2.allow_icmp.id
   ]
 }
 
@@ -57,4 +67,10 @@ resource "openstack_fw_group_v2" "group_1" {
   ports =[
     openstack_networking_port_v2.R1_port.id
   ] 
+  depends_on = [openstack_networking_port_v2.R1_port] 
+ # time_sleep.await]
 }
+
+# resource "time_sleep" "await" {
+#  create_duration = "15s"
+# }

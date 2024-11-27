@@ -47,7 +47,6 @@ resource "openstack_networking_floatingip_associate_v2" "floatIp_ass" {
     port_id = openstack_networking_port_v2.admin_port.id
 }
 
-
 ####____SECURiTY GROUP SSH____####
 resource "openstack_compute_secgroup_v2" "ssh" {
   name        = "ssh"
@@ -59,7 +58,6 @@ resource "openstack_compute_secgroup_v2" "ssh" {
     cidr        = "0.0.0.0/0"
   }
 }
-
 
 
 ####____SSH____####
