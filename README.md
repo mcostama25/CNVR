@@ -2,7 +2,7 @@
 
 ## Descripción del Proyecto
 Este proyecto forma parte del curso 2024-25 y tiene como objetivo el despliegue automático de una aplicación escalable en una nube OpenStack utilizando los servicios de orquestación de Terraform. La aplicación está compuesta por servidores web, una base de datos, balanceadores de carga y un firewall, todos gestionados de manera automatizada. El escenario Opnestack utilizado es el mostrado a continuación.
-<img src="images/opensatack.png" width="600">
+<img src="imagenes/opensatack.png" width="600">
 
 
 ## Características Principales
@@ -20,7 +20,7 @@ El entorno se compone de los siguientes elementos segun la arquitecura de la sig
 - **Servidor de Administración**: Gestión y mantenimiento del servicio (SSH restringido).
 - **Firewall**: Filtrado de accesos desde el exterior.
 - **Balanceador de Carga**: Distribución del tráfico entre los servidores web.
-<img src="images/topologia.png" width="600">
+<img src="imagenes/topologia.png" width="600">
 
 
 ## Requisitos
